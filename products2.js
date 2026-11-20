@@ -2,7 +2,7 @@
 //for the search, sort and filter part
 
 
-const productContainer = document.getElementById("products");
+
 const searchInput = document.getElementById("search");
 const sortSelect = document.getElementById("sort");
 
@@ -39,7 +39,7 @@ function displayProducts(products){
 return;
 
 }
-
+//the card
 products.forEach(product=>{
     productContainer.innerHTML += `
     <div class="card">
@@ -49,9 +49,8 @@ products.forEach(product=>{
     <p>${product.description}</p>
     <p class="price">${product.price}$</p>
 
-    <button>Lägg i varukorg</button>
-    <button>Favorit</button>
-
+    <a class="details" href="cart.html?id=${product.id}">Lägg i varukorg</a>
+    <a class="details" href="favorites.html?id=${product.id}">Favoriter</a>
     <a class="details" href="product.html?id=${product.id}">Visa detaljer</a>
     </div>
     `;

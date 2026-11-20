@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="products.js"></script>
-    <script src="products2.js"></script>
+    <script src="products.js" defer></script>
+    <script src="products2.js" defer></script>
     <link rel="stylesheet" href="style.css">
     <title>Document</title>
 </head>
@@ -35,25 +35,16 @@
 
         <h2>Populära produkter</h2>
         <div id="featured-list"></div>
-
+        <div id="products"></div>
     </section>
+    
 
 </main>
 
 <!--the Catalog-->
 <!--we can take this of if not wanted-->
 
-<input type="text" id="search">
-
-<select id="category"></select>
-
-<select id="sort">
-    <option value="">Sortera</option>
-    <option value="asc">Pris stigande</option>
-    <option value="desc">Pris fallande</option>
-</select>
-
-    <div id="products-container"></div>
+    
     
 </body>
 </html>

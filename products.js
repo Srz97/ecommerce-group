@@ -1,15 +1,19 @@
 //fetch API,CRUD,DOM
 
 const featuredList = document.getElementById("featured-list")
-const productContainer = document.getElementById("featured-products");
+let productContainer = document.getElementById("products");
+
+console.log(productContainer)
 
 async function getFeaturedProducts() {
    try{
     const response = await fetch("https://dummyjson.com/products?limit=4");
     const data = await response.json();
+        displayProducts(data.products);
 
+      featuredList.innerHTML ="";
 
-    data.products.forEach(product => {
+        data.products.forEach(product => {
         featuredList.innerHTML += `
         <div class="card">
         <img src="${product.thumbnail}">
@@ -18,12 +22,12 @@ async function getFeaturedProducts() {
         </div>
         `;
 
-
 //getting crazy here still not working
     }
-
 );
+
         productContainer.innerHTML = "";
+        
         data.products.forEach(product=>{
         productContainer.innerHTML += `
         <div class="card">
@@ -37,6 +41,7 @@ async function getFeaturedProducts() {
 }
 
 //when error 
+
 catch(error){
     productContainer.innerHTML =
         "<p>Kunde inte hämta produkter.</p>";
@@ -57,10 +62,10 @@ async function getProducts() {
 // show the catalog 
 
 function displayProducts(products) {
-    container.innerHTML = "";
+    productContainer.innerHTML = "";
 
     products.forEach(product => {
-        container.innerHTML += `
+        productContainer.innerHTML += `
 
     <div class="product-card">
     <img src="${product.thumbnail}">
