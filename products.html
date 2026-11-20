@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="products.js" defer></script>
+    <script src="products2.js" defer></script>
+    <title>Document</title>
+</head>
+<body>
+
+<header>
+    <nav>
+        <div class="logo">Store</div>
+
+            <!--assignment don't say to do hamburgermeny but should we put one?-->
+        <div class="menu">
+            <a href="index.html">Hem</a>
+            <a href="products.html">Produkter</a>
+            <a href="favorites.html">Favoriter</a>
+            <a href="cart.html">Varukorg</a>
+        </div>
+
+    </nav>
+
+</header>
+
+    <section class="controls">
+            <input type="text"id="search"placeholder="Sök produkt...">
+
+            <select id="sort">
+                <option value="">Sortera</option>
+                <option value="asc">Pris stigande</option>
+                <option value="desc">Pris fallande</option>
+
+            </select>
+
+    </section>
+    
+    <section id="featured-products">
+
+            <h2>Populära produkter</h2>
+            <div id="featured-list"></div>
+
+    </section>
+
+        <div id="products" class="products">
+
+            <p class="loading">Laddar produkter...</p>
+
+        </div>
+
+
+
+    <div id="products-container"></div>
+
+
+    
+</body>
+</html>
