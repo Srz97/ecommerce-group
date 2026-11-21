@@ -18,15 +18,17 @@ async function getProduct() {
 `;
     const favoriteButton = document.getElementById("favorite-button");
     favoriteButton.addEventListener("click", () => {
-  const favorites = JSON.parse(localStorage.getItem("favorites") ?? "[]");
+    const favorites = JSON.parse(localStorage.getItem("favorites") ?? "[]");
 
   if (!favorites.includes(id)) {
     favorites.push(id);
   }
 
   localStorage.setItem("favorites", JSON.stringify(favorites));
-  console.log(favorites);
+    favoriteButton.textContent = "Sparad som favorit ✓";
+    console.log(favorites);
   });
 }
+
 getProduct();
 
