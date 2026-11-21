@@ -2,6 +2,7 @@
 //for the search, sort and filter part
 
 
+const productContainer = document.getElementById("products");
 
 const searchInput = document.getElementById("search");
 const sortSelect = document.getElementById("sort");
@@ -49,8 +50,8 @@ products.forEach(product=>{
     <p>${product.description}</p>
     <p class="price">${product.price}$</p>
 
-    <a class="details" href="cart.html?id=${product.id}">Lägg i varukorg</a>
-    <a class="details" href="favorites.html?id=${product.id}">Favoriter</a>
+    <button type="button" class="cart-button" data-id="${product.id}">Lägg i varukorg</button>
+    <button type="button" class="favorite-button" data-id="${product.id}">Spara som favorit</button>
     <a class="details" href="product.html?id=${product.id}">Visa detaljer</a>
     </div>
     `;
@@ -106,3 +107,21 @@ function sortProducts(products){
 }
 
 getProducts();
+
+productContainer.addEventListener("click", (event) => {
+  const button = event.target.closest(".favorite-button");
+
+  if (!button) {
+    return;
+  }
+
+  const id = button.dataset.id;
+  const favorites = JSON.parse(localStorage.getItem("favorites") ?? "[]");
+
+  if (!favorites.includes(id)) {
+    favorites.push(id);
+  }
+
+  localStorage.setItem("favorites", JSON.stringify(favorites));
+  button.textContent = "Sparad som favorit ✓";
+});
