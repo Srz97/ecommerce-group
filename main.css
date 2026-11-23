@@ -1,26 +1,185 @@
 body {
     margin: 0%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
+main{
+    flex: 1;
+}
+/* Varukorg */
 header > nav > h1 {
     text-align: center;
-    background-color: rgb(132, 132, 197);
+    background-color: rgb(132, 186, 197);
     padding: 1em;
     margin-top: 0%;
     font-size: 3em;
 }
+#chartPage{
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    align-items: center;    
+}
 
-footer > p {
+main > section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3em;
+}
+
+main > section > .cartItem {
+    display: flex;
+    gap: 5em;
+}
+
+main > section > .cartItem > .productCard {
+    width: 40em;
+    background-color: lightgray;
+    text-align: center;
+    border-radius: 2em;
+}
+
+main > section > .cartItem > .quantity {
+    margin-top: 1em;
+}
+
+main > section > .cartItem > .quantity > button {
+    background-color: lightgray;
+    margin: 2em;
+    border: none;
+    width: 4em;
+    height: 4em;
+    border-radius: 50%;
+}
+
+main > section > .cartItem > .quantity > button:hover{
+    background-color: grey;
+}
+
+main > section > .cartItem > .quantity > input {
+    width: 3em;
+    height: 3em;
     text-align: center;
 }
 
-main > #products > div{
-    background-color: grey;
-    border:black;
-    border-radius: 3rem;
-    width: 50%;
-    margin-left: 25%;
+main > #nextBtn {
+    width: 40em;
+    height: 3em;
+    margin-top: 5em;
+    border: none;
+    border-radius: 2em;
+    background-color: rgb(132, 186, 197);
+    justify-content: center;
+}
+main > #nextBtn:hover{
+    background-color: rgb(94, 128, 135);
+
 }
 
-main > #products > div > p{ 
+main > #sum{
+    margin-top: 3em;
+    font-weight: bold;
+    font-size: xx-large;
+}
+    
+#sum {
+    margin-top: 3em;
+    font-weight: bold;
+    font-size: xx-large;
+}
+
+/* Betalnings Sida */
+#paymentPage {
+    display: flex;
+    gap: 15em;
+    justify-content: center;
+
+}
+
+#paymentPage > #costumerForm {
+    display: flex;
+    flex-direction: column;
+}
+
+#paymentPage > #costumerForm > #name {
+    display: flex;
+    margin-bottom: 1em;
+}
+
+#paymentPage > #costumerForm > div > input{
+    border-radius: 2em;
+    border-color: black;
+    margin: 7px;
+    width: 20em;
+    height: 3em;
+    text-align: center;
+
+}
+
+#paymentPage > #costumerForm > div > label{
+  margin-top: 15px;
+}
+
+#paymentPage > #costumerForm > input {
+    border-radius: 2em;
+    border-color: black;
+    margin: 5px;
+    width: 40em;
+    height: 3em;
+    text-align: center;
+}
+
+#paymentPage > #costumerForm > #city {
+    margin-top: 1em;
+}
+
+#cardInfo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 5em;
+    margin-bottom: 5em;
+} 
+
+#cardInfo > .cardNumber > input {
+    border-radius: 2em;
+    border-color: black;
+    margin-bottom: 2em;
+    width: 40em;
+    height: 3em;
+    text-align: center;
+}
+
+#cardInfo > div > input {
+    border-radius: 2em;
+    border-color: black;
+    margin: 5px;
+    width: 16em;
+    height: 3em;
+    text-align: center;
+}
+
+
+#completeOrder{
+    display: flex;
+    justify-content: center;
+}
+
+#completeOrder > button{
+    width: 40em;
+    height: 3em;
+    margin-top: 5em;
+    border: none;
+    border-radius: 2em;
+    background-color: rgb(132, 186, 197);
+}
+#completeOrder > button:hover{
+    background-color: rgb(94, 128, 135);
+
+}
+
+footer > p {
     text-align: center;
 }

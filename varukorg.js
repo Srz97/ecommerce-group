@@ -4,24 +4,61 @@
 // Steg 4: Fixa en delete button till varje produktkort.
 // Steg 5: Gör en gå till kassa knapp.
 
-const products = document.querySelector("#products");
-const nextBtn = document.querySelector("#nextBtn");
+//  let productList = JSON.parse(localStorage.getItem("cart")) || [
+//     {productName: "Computer", price: 5000, description: "Super computer that can mine bitcoin and earn yoy 5000 a minute", quantity: 20},
+//     {productName: "Iphone 25", price: 1000, description: "Just shake the phone and think of a place and you will be teleported", quantity: 2}, 
+//     {productName: "Tesla model 7", price: 20, description: "This is a car to be trusted, it can get you to the moon", quantity: 4},
+//     {productName: "Tesla model 7", price: 20, description: "This is a car to be trusted, it can get you to the moon", quantity: 4},
+//     {productName: "Tesla model 7", price: 20, description: "This is a car to be trusted, it can get you to the moon", quantity: 4},
+//     {productName: "Tesla model 7", price: 20, description: "This is a car to be trusted, it can get you to the moon", quantity: 4},
+//     {productName: "Tesla model 7", price: 20, description: "This is a car to be trusted, it can get you to the moon", quantity: 4}];
 
-let productList = JSON.parse(localStorage.getItem("chart")) || [
-    {productName: "computer", price: 5000, description: "Super computer that can mine bitcoin and earn yoy 5000 a minute", quantity: 20},
-    {productName: "Iphone 25", price: 1000, description: "Just shake the phone and think of a place and you will be teleported", quantity: 2}, 
-    {productName: "Tesla model 7", price: 20, description: "This is a car to be trusted, it can get you to the moon", quantity: 4}
+const nextBtn = document.querySelector("#nextBtn");
+const sum = document.querySelector("#sum");
+const products = document.querySelector("#products");
+
+function toCartItem(product) {
+    return {
+        id: product.id,
+        productName: product.productName || product.title,
+        price: product.price,
+        description: product.description,
+        image: product.image || product.thumbnail,
+        quantity: product.quantity || 1
+    };
+}
+
+const saved = JSON.parse(localStorage.getItem("cart")) || [];
+let productList = saved.map(toCartItem);
+
+localStorage.setItem("cart", JSON.stringify(productList));
+renderProducts(productList);
+
+function sumProduct (items) {
+    let sumProduct = 0;
+    items.forEach(function(product){
+        sumProduct += product.quantity * product.price 
+
+    })
+    return sumProduct
     
-]
+}
 
 function renderProducts (items) {
     products.innerHTML = "";
+    if (items.length === 0) {
+        products.textContent = "Varukorgen är tom.";
+    }
+
     items.forEach(function(product, index){
+    const cartItem = document.createElement("div")
+    cartItem.className = ("cartItem")
 
     const productItem = document.createElement("div");
+    productItem.className = ("productCard")
 
-    const productName = document.createElement("p");
-    productName.textContent = "Product: " + product.productName;
+    const productName = document.createElement("h2");
+    productName.textContent = product.productName;
 
     const price = document.createElement("p");
     price.textContent = "Price: " + product.price + "kr";
@@ -30,6 +67,7 @@ function renderProducts (items) {
     description.textContent = "Description: " + product.description;
 
     const quantityWrapper = document.createElement("div");
+    quantityWrapper.className = ("quantity")
 
     const quantity = document.createElement("input");
     quantity.type = "number";
@@ -45,19 +83,19 @@ function renderProducts (items) {
 
     const deleteBtn = document.createElement("button");
     deleteBtn.setAttribute("id", "skola")
-    deleteBtn.textContent = "Delete";
-
+    deleteBtn.textContent = "X";
+    
 
     deleteBtn.addEventListener("click", function () {
         productList.splice(index, 1);
         renderProducts(items);
-        localStorage.setItem("chart", JSON.stringify(productList));
+        localStorage.setItem("cart", JSON.stringify(productList));
     })
 
     addQuantity.addEventListener("click", function (){
         product.quantity++
         renderProducts(items);
-        localStorage.setItem("chart", JSON.stringify(productList));
+        localStorage.setItem("cart", JSON.stringify(productList));
     })
 
     subtractQuantity.addEventListener("click", function (){
@@ -66,16 +104,19 @@ function renderProducts (items) {
         }
 
         renderProducts(items)
-        localStorage.setItem("chart", JSON.stringify(productList));
+        localStorage.setItem("cart", JSON.stringify(productList));
     })
 
-    quantityWrapper.append(subtractQuantity, quantity, addQuantity);
-    productItem.append(productName, price, description, deleteBtn, quantityWrapper);
-    products.append(productItem);
-
+    quantityWrapper.append(subtractQuantity, quantity, addQuantity, deleteBtn);
+    productItem.append(productName, price, description);
+    cartItem.append(productItem, quantityWrapper);
+    products.append(cartItem)
 })
+    sum.textContent = "Total amount: " + sumProduct(items).toLocaleString("sv-SE") + " kr";
+    localStorage.setItem("total", sumProduct(items));
+
 };
-renderProducts(productList);
+
 
 
 nextBtn.addEventListener("click", function (){
