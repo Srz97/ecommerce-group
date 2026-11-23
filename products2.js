@@ -49,9 +49,9 @@ products.forEach(product=>{
     <p>${product.description}</p>
     <p class="price">${product.price}$</p>
 
-    <a class="details" href="cart.html?id=${product.id}">Lägg i varukorg</a>
+    <a class="details" href="cart.html?id=${product.id}">Lägg i varukorg <span>🛒<span></a>
     <a class="details" href="favorites.html?id=${product.id}"> Favoriter <span>❤️<span></a>
-    <a class="details" href="product.html?id=${product.id}"> Visa detaljer <span>🛒<span></a>
+    <a class="details" href="product.html?id=${product.id}"> Visa detaljer </a>
     </div>
     `;
 
