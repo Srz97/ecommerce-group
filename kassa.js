@@ -1,15 +1,33 @@
-const chart = JSON.parse(localStorage.getItem("chart")) || [];
+const chart = JSON.parse(localStorage.getItem("cart")) || [];
 
 const products = document.querySelector("#products");
+const completeOrder = document.querySelector("#completeOrder");
+const customerForm = document.querySelector("#costumerForm");
+const cardForm = document.querySelector("#cardInfo");
+const sum = document.querySelector("#sum");
+const total = localStorage.getItem("total");
+
+if (total) {
+    sum.textContent = "Total amount: " + Number(total).toLocaleString("sv-SE") + " kr";
+
+
+}
 
 function renderProducts (items) {
     products.innerHTML = "";
+
     items.forEach(function(product, index){
+    const cartItem = document.createElement("div")
+    cartItem.className = ("cartItem")
+
+    const heading = document.createElement("h2")
+    heading.textContent = "Chosen Products"
 
     const productItem = document.createElement("div");
+    productItem.className = ("productCard")
 
-    const productName = document.createElement("p");
-    productName.textContent = "Product: " + product.productName;
+    const productName = document.createElement("h2");
+    productName.textContent = product.productName;
 
     const price = document.createElement("p");
     price.textContent = "Price: " + product.price + "kr";
@@ -17,50 +35,15 @@ function renderProducts (items) {
     const description = document.createElement("p");
     description.textContent = "Description: " + product.description;
 
-    const quantityWrapper = document.createElement("div");
-
-    const quantity = document.createElement("input");
-    quantity.type = "number";
-    quantity.min = 1;
-    quantity.value = product.quantity;
-
-    const addQuantity = document.createElement("button");
-    addQuantity.textContent = "+"
-
-    const subtractQuantity = document.createElement("button");
-    subtractQuantity.textContent = "-"
-
-    const deleteBtn = document.createElement("button");
-    deleteBtn.setAttribute("id", "skola")
-    deleteBtn.textContent = "Delete";
-
-
-    deleteBtn.addEventListener("click", function () {
-        productList.splice(index, 1);
-        renderProducts(items);
-        localStorage.setItem("chart", JSON.stringify(productList));
-    })
-
-    addQuantity.addEventListener("click", function (){
-        product.quantity++
-        renderProducts(items);
-        localStorage.setItem("chart", JSON.stringify(productList));
-    })
-
-    subtractQuantity.addEventListener("click", function (){
-        if(product.quantity > 1) {
-            product.quantity--
-        }
-
-        renderProducts(items)
-        localStorage.setItem("chart", JSON.stringify(productList));
-    })
-
-    quantityWrapper.append(subtractQuantity, quantity, addQuantity);
-    productItem.append(productName, price, description, deleteBtn, quantityWrapper);
-    products.append(productItem);
-
+    productItem.append(productName, price, description);
+    cartItem.append(productItem);
+    products.append(cartItem)
 })
 };
 renderProducts(chart);
+
+completeOrder.addEventListener("click", function () {
+    if (!customerForm.reportValidity()) return;
+    if (!cardForm.reportValidity()) return;
+    window.location.href = "index-bekraftelse.html";})
 
