@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kassa</title>
+    <link rel="stylesheet" href="main.css">
+    <script src="kassa.js" defer></script>
+</head> 
+<body>
+    <header>
+        <nav>
+            <h1>Payment</h1>
+        </nav>
+    </header>
+
+    <main id="paymentPage">
+           
+            <section id="products"></section>
+            
+            <form id="costumerForm">
+                
+                    <h2>Costumer Information</h2>
+                <div id="name">
+                    <label for="firstName">First Name:</label>
+                    <input type="text" id="firstName" pattern="[A-Za-zÅÄÖåäö\- ]{2,}" title="Skriv endast bokstäver, minst 2 tecken" placeholder="John" required>
+                    
+                    <label for="lastName">Last Name:</label>
+                    <input type="text" id="lastName" pattern="[A-Za-zÅÄÖåäö\- ]{2,}" title="Skriv endast bokstäver, minst 2 tecken" placeholder="Doe" required>
+                </div>
+
+                
+                <label for="email">Email:</label>
+                <input type="email" id="email" title="Ange en giltig e-post adress" placeholder="John@gmail.com" required>
+
+                <label for="phoneNr">Phone Number:</label>
+                <input type="tel" id="phoneNr" pattern="07\d{8}" maxlength="10" title="Format: 07... " placeholder="0712345678" required>
+
+                <label for="address">Delivery Address:</label>
+                <input type="text" id="address" placeholder="Stockholmsvägen 54" required>
+                
+
+                <div id="city">
+                    <label for="state">Kommun:</label>
+                    <input type="text" id="state" placeholder="Kommun" required>
+
+                    <label for="postCode">Post Code:</label>
+                    <input type="text" id="postCode" maxlength="6" pattern="\d{3} ?\d{2}" title="5 siffror, t.ex. 123 45" placeholder="123 45" required>
+                </div>
+            </form>
+    </main>
+
+    <form id="cardInfo">
+        <h2>Card Information</h2>
+
+        <div class="cardNumber">
+            <label for="cardNumber">Card Number</label>
+            <input type="text" id="cardNumber" inputmode="numeric" pattern="(\d{4} ?){3}\d{4}" placeholder="1234 5678 9012 3456"
+            title="16 siffror, t.ex. 1234 5678 9012 3456" required> 
+        </div>
+
+        <div>
+            <label for="date">Date</label>
+            <input type="text" id="date" placeholder="MM/ÅÅ" pattern="(0[1-9]|1[0-2])/\d{2}"
+            title="Format MM/ÅÅ, t.ex. 08/27" required>
+
+            <label for="cvc">CVC</label>
+            <input type="text" id="cvc" inputmode="numeric" pattern="\d{3}" autocomplete="off" placeholder="123"
+            title="Exakt 3 siffror" required>
+        </div>
+
+        <section id="sum"></section>
+
+    </form>
+    <div id="completeOrder">
+        <button type="button">Complete Order</button>
+    </div>
+
+    <footer>
+        <p>&copy; Cheapest scam 2026</p>
+    </footer>
+</body>
+</html>
+
