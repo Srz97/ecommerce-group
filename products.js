@@ -52,6 +52,7 @@ catch(error){
 
 getFeaturedProducts();
 
+
 //get all category
 async function getProducts() {
     const response = await fetch("https://dummyjson.com/products");
@@ -60,7 +61,6 @@ async function getProducts() {
 }
 
 // show the catalog 
-
 function displayProducts(products) {
     productContainer.innerHTML = "";
 
@@ -71,14 +71,41 @@ function displayProducts(products) {
     <img src="${product.thumbnail}">
     <h3>${product.title}</h3>
     <p>${product.price}$</p>
-    <button>Favorit</button>
-    <button>Lägg i varukorg</button>
+    <button onclick="addFavorite(${product.id})">Favorit</button>
+    <button onclick="addToCart(${product.id})">Lägg i varukorg</button>
     <a href="product.html?id=${product.id}">Läs mer</a>
     </div>`;
 
     });
 
 }
+
+getProducts();
+
+
+
+//localstorage for favorite
+function getFavorites() {
+    return JSON.parse(localStorage.getItem("favorites")) || [];
+}
+
+function saveFavorites(favorites) {
+    localStorage.setItem("favorites", JSON.stringify(favorites));
+}
+
+
+//localstorage for cart
+function getCart() {
+    return JSON.parse(localStorage.getItem("cart")) || [];
+}
+
+function saveCart(cart) {
+    localStorage.setItem("cart", JSON.stringify(cart));
+}
+
+
+
+
 
 //before fetch 
 //container.innerHTML ="<p>Laddar produkter...</p>";
