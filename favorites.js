@@ -14,11 +14,11 @@ async function showFavorites() {
     const card = document.createElement("article");
 
     card.innerHTML = `
-      <h2><a></a></h2>
-      <img alt="">
-      <button type="button">Ta bort</button>
-    `;
-
+  <h2><a></a></h2>
+  <img alt="">
+  <button type="button">Ta bort</button>
+  <button type="button" class="cart-button">Lägg i varukorg</button>
+`;
     const link = card.querySelector("a");
     link.textContent = product.title;
     link.href = `product.html?id=${id}`;
@@ -34,6 +34,25 @@ async function showFavorites() {
       window.location.reload();
     });
 
+    const cartButton = card.querySelector(".cart-button");
+
+     cartButton.addEventListener("click", () => {
+       const cart = JSON.parse(localStorage.getItem("cart") ?? "[]");
+       const existingProduct = cart.find(item => Number(item.id) === product.id);
+     
+       if (existingProduct) {
+    existingProduct.quantity = Number(existingProduct.quantity ?? 1) + 1;
+       } else {
+         cart.push({
+           ...product,
+                quantity: 1
+         });
+       }
+     
+  localStorage.setItem("cart", JSON.stringify(cart));
+       cartButton.textContent = "Tillagd i varukorgen ✓";
+     });
+     
     list.append(card);
   }
 }
