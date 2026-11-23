@@ -47,7 +47,8 @@ nav{
     justify-content:center;
     align-items:center;
     text-align:center;
-    background:linear-gradient(90deg,#0077ff,#00c6ff);
+    /*background:linear-gradient(90deg,#0077ff,#00c6ff);*/
+    background: linear-gradient(90deg,rgb(132, 186, 197),rgb(94, 188, 207));
     color:white;
 }
 
@@ -58,20 +59,22 @@ nav{
 
 .hero a{
     background:white;
-    color:#0077ff;
+    /*color:#0077ff;*/
+    color:rgb(94, 188, 207);
     padding:12px 20px;
     text-decoration:none;
     border-radius:5px;
     font-weight:bold;
 }
 
-.featured{
+.featured-products{
     padding:40px;
 }
 
-.featured h2{
+ h2{
     text-align:center;
-    margin-bottom:30px;
+    margin:30px;
+    padding: 5px;
 }
 
 .controls{
@@ -171,10 +174,44 @@ footer{
         flex-direction:column;
     } 
 
+    nav {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .menu {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .hero {
+        height: auto;
+        padding: 60px 20px;
+    }
+
+    .hero h1 {
+        font-size: 2rem;
+    }
+
+    .products {
+        padding: 20px;
+    }
+
+    #featured-list {
+       
+        grid-template-columns: 1fr;
+    }
+
+    .controls {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    select {
+        width: 100%;
+    }
 }
-
-
-
 
 
 

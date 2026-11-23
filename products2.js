@@ -1,5 +1,5 @@
 // two js only because trying with fetch and error ..still working on it
-//for the search, sort and filter part
+//for the search, sort and filter part, the card for products
 
 
 
@@ -50,8 +50,8 @@ products.forEach(product=>{
     <p class="price">${product.price}$</p>
 
     <a class="details" href="cart.html?id=${product.id}">Lägg i varukorg</a>
-    <a class="details" href="favorites.html?id=${product.id}">Favoriter</a>
-    <a class="details" href="product.html?id=${product.id}">Visa detaljer</a>
+    <a class="details" href="favorites.html?id=${product.id}"> Favoriter <span>❤️<span></a>
+    <a class="details" href="product.html?id=${product.id}"> Visa detaljer <span>🛒<span></a>
     </div>
     `;
 
