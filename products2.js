@@ -1,5 +1,5 @@
 // two js only because trying with fetch and error ..still working on it
-//for the search, sort and filter part
+//for the search, sort and filter part, the card for products
 
 
 const productContainer = document.getElementById("products");
@@ -50,8 +50,14 @@ products.forEach(product=>{
     <p>${product.description}</p>
     <p class="price">${product.price}$</p>
 
-    <button type="button" class="cart-button" data-id="${product.id}">Lägg i varukorg</button>
-    <button type="button" class="favorite-button" data-id="${product.id}">Spara som favorit</button>
+    <button type="button" class="cart-button" data-id="${product.id}">
+      Lägg i varukorg <span aria-hidden="true">🛒</span>
+    </button>
+
+    <button type="button" class="favorite-button" data-id="${product.id}">
+      Spara som favorit <span aria-hidden="true">♡</span>
+    </button>
+
     <a class="details" href="product.html?id=${product.id}">Visa detaljer</a>
     </div>
     `;
