@@ -14,6 +14,11 @@ header > nav > h1 {
     padding: 1em;
     margin-top: 0%;
     font-size: 3em;
+    font-family: Arial, Helvetica, sans-serif;
+}
+header > nav > h1{
+    font-family: Arial, Helvetica, sans-serif;
+
 }
 #chartPage{
     display: flex;
@@ -39,6 +44,8 @@ main > section > .cartItem > .productCard {
     background-color: lightgray;
     text-align: center;
     border-radius: 2em;
+    font-family: Arial, Helvetica, sans-serif;
+
 }
 
 main > section > .cartItem > .quantity {
@@ -62,6 +69,8 @@ main > section > .cartItem > .quantity > input {
     width: 3em;
     height: 3em;
     text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+
 }
 
 main > #nextBtn {
@@ -71,10 +80,14 @@ main > #nextBtn {
     border: none;
     border-radius: 2em;
     background-color: rgb(132, 186, 197);
-    justify-content: center;
 }
+
 main > #nextBtn:hover{
-    background-color: rgb(94, 128, 135);
+    background-color: rgba(92, 115, 119, 0.171);
+
+}
+#costumerForm {
+    font-family: Arial, Helvetica, sans-serif;
 
 }
 
@@ -82,12 +95,16 @@ main > #sum{
     margin-top: 3em;
     font-weight: bold;
     font-size: xx-large;
-}
+    font-family: Arial, Helvetica, sans-serif;
+
+} 
     
 #sum {
     margin-top: 3em;
     font-weight: bold;
     font-size: xx-large;
+    font-family: Arial, Helvetica, sans-serif;
+
 }
 
 /* Betalnings Sida */
@@ -115,6 +132,8 @@ main > #sum{
     width: 20em;
     height: 3em;
     text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+
 
 }
 
@@ -129,6 +148,8 @@ main > #sum{
     width: 40em;
     height: 3em;
     text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+
 }
 
 #paymentPage > #costumerForm > #city {
@@ -141,6 +162,8 @@ main > #sum{
     align-items: center;
     margin-top: 5em;
     margin-bottom: 5em;
+    font-family: Arial, Helvetica, sans-serif;
+
 } 
 
 #cardInfo > .cardNumber > input {
@@ -159,6 +182,8 @@ main > #sum{
     width: 16em;
     height: 3em;
     text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+
 }
 
 
@@ -176,10 +201,30 @@ main > #sum{
     background-color: rgb(132, 186, 197);
 }
 #completeOrder > button:hover{
-    background-color: rgb(94, 128, 135);
+    background-color: rgba(92, 115, 119, 0.171)
 
 }
+#confirmationPage {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#confirmationPage > h2 {
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+
+}
+
+#confirmationPage > p {
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+
+}
+
 
 footer > p {
     text-align: center;
 }
+
+
