@@ -131,3 +131,31 @@ productContainer.addEventListener("click", (event) => {
   localStorage.setItem("favorites", JSON.stringify(favorites));
   button.textContent = "Sparad som favorit ✓";
 });
+
+productContainer.addEventListener("click", (event) => {
+  const button = event.target.closest(".cart-button");
+
+  if (!button) {
+    return;
+  }
+
+  const id = Number(button.dataset.id);
+  const product = allProducts.find(product => product.id === id);
+
+  if (!product) {
+    return;
+  }
+
+  const cart = JSON.parse(localStorage.getItem("cart") ?? "[]");
+
+  const existingProduct = cart.find(item => Number(item.id) === id);
+
+  if (existingProduct) {
+    existingProduct.quantity = Number(existingProduct.quantity ?? 1) + 1;
+  } else {
+    cart.push({ ...product, quantity: 1 });
+  }
+
+  localStorage.setItem("cart", JSON.stringify(cart));
+  button.textContent = "Tillagd i varukorgen ✓";
+});
