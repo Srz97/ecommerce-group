@@ -3,17 +3,21 @@ body {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
+    background:#f5f5f5;
 }
 main{
     flex: 1;
 }
 /* Varukorg */
+header > nav {
+    background-color: rgb(132, 186, 197);
+    padding: 1px;
+    border-radius: 8px;
+    margin: 1em;
+}
 header > nav > h1 {
     text-align: center;
-    background-color: rgb(132, 186, 197);
-    padding: 1em;
-    margin-top: 0%;
-    font-size: 3em;
+    font-size: x-large;
     font-family: Arial, Helvetica, sans-serif;
 }
 header > nav > h1{
@@ -78,7 +82,7 @@ main > #nextBtn {
     height: 3em;
     margin-top: 5em;
     border: none;
-    border-radius: 2em;
+    border-radius: 1em;
     background-color: rgb(132, 186, 197);
 }
 
@@ -105,6 +109,20 @@ main > #sum{
     font-size: xx-large;
     font-family: Arial, Helvetica, sans-serif;
 
+}
+#returnBtn {
+    width: 10em;
+    height: 3em;
+    margin-left: 10%;
+    margin-bottom: 3em;
+    align-self: flex-start;
+    border: none;
+    border-radius: 1em;
+    background-color: rgb(132, 186, 197);
+}
+
+#returnBtn:hover { 
+    background-color: rgba(92, 115, 119, 0.171);
 }
 
 /* Betalnings Sida */
@@ -190,6 +208,7 @@ main > #sum{
 #completeOrder{
     display: flex;
     justify-content: center;
+    margin-bottom: 5em;
 }
 
 #completeOrder > button{
@@ -197,7 +216,7 @@ main > #sum{
     height: 3em;
     margin-top: 5em;
     border: none;
-    border-radius: 2em;
+    border-radius: 1em;
     background-color: rgb(132, 186, 197);
 }
 #completeOrder > button:hover{
@@ -222,9 +241,135 @@ main > #sum{
 
 }
 
+.emptyChart{
+    font-family: Arial, Helvetica, sans-serif;
+    margin-top: 8em;
+}
 
+.returnToProduct {
+    width: 15em;
+    text-decoration: none;
+    color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 3em;
+    margin-top: 5em;
+    border: none;
+    border-radius: 1em;
+    background-color: rgb(132, 186, 197);
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.returnToProduct:hover {
+    background-color: rgba(92, 115, 119, 0.171)
+    
+
+}
+
+footer{
+    background-color: lightgray;
+    padding: 20px;
+    border-radius: 1em;
+    margin: 1em;
+}
 footer > p {
     text-align: center;
+    display: flex;
+    align-items: center;
 }
 
 
+@media(max-width: 600px){
+
+    /* varukorg */
+
+    main > section > .cartItem > .productCard {
+        width: 90%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .cartItem{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 90%;
+    }
+    .quantity{
+        display: flex;
+        justify-content: center;
+    }
+
+    .quantity > .amount {
+        margin-top: 2em;
+    }
+
+    main > #nextBtn {
+        width: 90%;
+    }
+    #returnBtn {
+        align-self: center;
+        margin-left: 0%;
+        margin-top: 2em;
+    }
+
+    /* Betalnin */
+
+    h2 {
+        text-align: center;
+    }
+
+    header > #returnBtn {
+        display: block;
+        margin: 2em auto 0;
+    }
+
+    #paymentPage {
+        flex-direction: column;
+        align-items: center;
+        gap: 2em;
+    }
+
+    #paymentPage > #costumerForm,
+    #cardInfo {
+        width: 90%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    #paymentPage > #costumerForm > #name,
+    #paymentPage > #costumerForm > #city,
+    #cardInfo > div {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+
+    #paymentPage > #costumerForm > input,
+    #paymentPage > #costumerForm > div > input,
+    #cardInfo > .cardNumber > input,
+    #cardInfo > div > input {
+        width: 100%;
+        box-sizing: border-box;
+        margin: 5px 0;
+    }
+
+    #paymentPage > #costumerForm > div > label {
+        margin-top: 10px;
+    }
+
+    #cardInfo {
+        margin-top: 2em;
+        margin-bottom: 2em;
+    }
+
+    #completeOrder > button {
+        width: 90%;
+        margin-top: 1em;
+    }
+
+    #completeOrder {
+        margin-bottom: 2em;
+    }
+}

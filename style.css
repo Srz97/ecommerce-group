@@ -10,8 +10,11 @@ body{
 }
 
 header{
-    background:#222;
-    padding:1rem;
+    background:rgb(132, 186, 197);
+    padding: 1rem;
+    margin: 1em;
+    margin-bottom: 3em;
+    border-radius: 1em;
 
 }
 
