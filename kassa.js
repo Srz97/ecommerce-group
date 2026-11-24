@@ -7,6 +7,7 @@ const cardForm = document.querySelector("#cardInfo");
 const sum = document.querySelector("#sum");
 const total = localStorage.getItem("total");
 
+
 if (total) {
     sum.textContent = "Total amount: " + Number(total).toLocaleString("sv-SE") + " kr";
 
@@ -46,4 +47,8 @@ completeOrder.addEventListener("click", function () {
     if (!customerForm.reportValidity()) return;
     if (!cardForm.reportValidity()) return;
     window.location.href = "index-bekraftelse.html";})
+
+returnBtn.addEventListener("click", function (){
+        window.location.href = "index-varukorg.html";
+    })
 

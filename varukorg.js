@@ -16,6 +16,7 @@
 const nextBtn = document.querySelector("#nextBtn");
 const sum = document.querySelector("#sum");
 const products = document.querySelector("#products");
+const returnBtn = document.querySelector("#returnBtn");
 
 function toCartItem(product) {
     return {
@@ -47,8 +48,23 @@ function sumProduct (items) {
 function renderProducts (items) {
     products.innerHTML = "";
     if (items.length === 0) {
-        products.textContent = "Varukorgen är tom.";
+        const emptyChart = document.createElement("p");
+        emptyChart.className = "emptyChart";
+        emptyChart.textContent = "Varukorgen är tom!";
+
+        const returnToProducts = document.createElement("a")
+        returnToProducts.className = "returnToProduct"
+        returnToProducts.textContent = "Kika på våra produkter"
+        returnToProducts.href = "products.html"
+
+        products.append(emptyChart, returnToProducts)
+
+        returnBtn.hidden = true;
+        nextBtn.hidden = true;
+        return;
     }
+    nextBtn.hidden = false;
+    returnBtn.hidden = false;
 
     items.forEach(function(product, index){
     const cartItem = document.createElement("div")
@@ -70,6 +86,7 @@ function renderProducts (items) {
     quantityWrapper.className = ("quantity")
 
     const quantity = document.createElement("input");
+    quantity.className = "amount";
     quantity.type = "number";
     quantity.min = 1;
     quantity.value = product.quantity;
@@ -121,6 +138,10 @@ function renderProducts (items) {
 
 nextBtn.addEventListener("click", function (){
     window.location.href = "index-kassa.html";
+})
+
+returnBtn.addEventListener("click", function (){
+    window.location.href = "products.html";
 })
 
 
