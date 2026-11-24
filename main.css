@@ -275,8 +275,8 @@ footer{
 }
 footer > p {
     text-align: center;
-    display: flex;
-    align-items: center;
+    font-family: Arial, Helvetica, sans-serif;
+    
 }
 
 
