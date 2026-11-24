@@ -9,7 +9,6 @@ async function getFeaturedProducts() {
    try{
     const response = await fetch("https://dummyjson.com/products?limit=4");
     const data = await response.json();
-        displayProducts(data.products);
 
       featuredList.innerHTML ="";
 
@@ -21,26 +20,11 @@ async function getFeaturedProducts() {
         <p>${product.price}$</p>
         </div>
         `;
-
-//getting crazy here still not working
     }
 );
-
-        productContainer.innerHTML = "";
-        
-        data.products.forEach(product=>{
-        productContainer.innerHTML += `
-        <div class="card">
-        <img src="${product.thumbnail}" alt="${product.title}">
-        <h3>${product.title}</h3>
-        <p>${product.price}$</p>
-        </div>
-        `;
-
-    });
 }
 
-//when error 
+//when error
 
 catch(error){
     productContainer.innerHTML =
@@ -60,7 +44,7 @@ async function getProducts() {
         displayProducts(data.products);
 }
 
-// show the catalog 
+// show the catalog
 function displayProducts(products) {
     productContainer.innerHTML = "";
 
@@ -79,9 +63,6 @@ function displayProducts(products) {
     });
 
 }
-
-getProducts();
-
 
 
 //localstorage for favorite
@@ -104,12 +85,8 @@ function saveCart(cart) {
 }
 
 
-
-
-
-//before fetch 
+//before fetch
 //container.innerHTML ="<p>Laddar produkter...</p>";
 
-//after fetch 
+//after fetch
 //container.innerHTML = "";``
-
